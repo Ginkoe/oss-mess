@@ -1,10 +1,13 @@
 {
   "name": "ossmess",
   "description": "Cleaning up dependencies issues",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ginkoe <ginkoe@protonmail.com>",
   "homepage": "https://github.com/Ginkoe/ossmess",
   "repository": "https://github.com/Ginkoe/ossmess.git",
+  "bin": {
+    "ossmess": "./dist/index.js"
+  },
   "files": [
     "dist"
   ],
