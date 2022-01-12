@@ -1,12 +1,12 @@
 {
   "name": "ossmess",
   "description": "Cleaning up dependencies issues",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "author": "Ginkoe <ginkoe@protonmail.com>",
   "homepage": "https://github.com/Ginkoe/ossmess",
   "repository": "https://github.com/Ginkoe/ossmess.git",
   "bin": {
-    "ossmess": "./dist/index.js"
+    "ossmess": "./dist/bin/ossmess.js"
   },
   "files": [
     "dist"
@@ -23,7 +23,7 @@
   "sideEffects": false,
   "scripts": {
     "# general commands": "##################################################",
-    "build": "tsup",
+    "build": "tsup ./src/bin/ossmess.ts ./src/index.ts --minify --clean --dts --splitting",
     "clean": "shx rm -rf dist/",
     "deduplicate": "npx yarn-deduplicate && yarn install",
     "dev": "tsup --watch src",
