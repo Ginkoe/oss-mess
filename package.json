@@ -1,0 +1,97 @@
+{
+  "name": "ossmess",
+  "description": "Cleaning up dependencies issues",
+  "version": "0.0.1",
+  "author": "Ginkoe <ginkoe@protonmail.com>",
+  "homepage": "https://github.com/Ginkoe/ossmess",
+  "repository": "https://github.com/Ginkoe/ossmess.git",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.js",
+  "sideEffects": false,
+  "scripts": {
+    "# general commands": "##################################################",
+    "build": "tsup",
+    "clean": "shx rm -rf dist/",
+    "deduplicate": "npx yarn-deduplicate && yarn install",
+    "dev": "tsup --watch src",
+    "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install $PWD/.husky",
+    "prepublishOnly": "yarn lint",
+    "release": "np",
+    "ship": "np",
+    "type-check": "tsc --noEmit",
+    "validate": "yarn lint && yarn type-check",
+    "#": "###################################################################"
+  },
+  "devDependencies": {
+    "@ginkoe/eslint-config": "Ginkoe/eslint-config",
+    "@types/node": "^14",
+    "@types/react": "^17",
+    "cross-env": "^7",
+    "env-cmd": "^10",
+    "eslint": "^7",
+    "husky": "^7",
+    "lint-staged": "^12",
+    "np": "^7",
+    "prettier": "^2.5.1",
+    "shx": "^0",
+    "tsup": "^5",
+    "typescript": "^4"
+  },
+  "peerDependencies": {},
+  "peerDependenciesMeta": {},
+  "eslintConfig": {
+    "extends": [
+      "@ginkoe/eslint-config"
+    ],
+    "ignorePatterns": [
+      "dist"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "root": true
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write"
+    ],
+    "src/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "prettier": {
+    "endOfLine": "auto",
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "all"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "ginkoe",
+    "sanitizer",
+    "marak",
+    "faker.js",
+    "colors.js"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chalk": "^5.0.0",
+    "npm-api": "^1.0.1"
+  }
+}
